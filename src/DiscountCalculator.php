@@ -34,27 +34,6 @@ class DiscountCalculator
         );
         $discountPercentage = $this->getDiscountPercentage($transaction);
 
-//        echo PHP_EOL;
-//        echo 'Country code:' . PHP_EOL;
-//        print_r($this->countriesClient->getCode($transaction->getBin()));
-//        echo PHP_EOL;
-//        echo 'Currency rate:' . PHP_EOL;
-//        print_r($this->currencyRateClient->getRate($transaction->getCurrencyCode()));
-//        echo PHP_EOL;
-//        echo 'Amount:' . PHP_EOL;
-//        print_r($transaction->getAmount());
-//        echo PHP_EOL;
-//        echo 'In Euro:' . PHP_EOL;
-//        print_r($amountInEuro);
-//        echo PHP_EOL;
-//        echo 'Discount:' . PHP_EOL;
-//        print_r($discountPercentage);
-//        echo PHP_EOL;
-//        echo 'Before format:' . PHP_EOL;
-//        print_r(bcmul($amountInEuro, $discountPercentage, $this->calculationPrecision));
-//        echo PHP_EOL;
-//        die();
-
         return $this->formatDiscount(bcmul($amountInEuro, $discountPercentage, $this->calculationPrecision));
     }
 
