@@ -1,0 +1,23 @@
+# IDE
+/.idea
+/nbproject
+
+# PHPUnit
+
+phpunit.xml
+/.phpunit.result.cache
+
+# build
+
+composer.phar
+/vendor/
+/_build/
+
+# translations
+*.mo
+
+# general
+.DS_Store
+
+.env
+var/
