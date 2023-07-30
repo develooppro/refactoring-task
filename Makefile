@@ -1,13 +1,12 @@
-install:
+init:
 	composer install
+	./bin/init.sh
 
-# todo: init command with bash script with api key input
-
-run-initial:
+run-wrong:
 	php ./public/app-0.php ./public/input.txt
 
 run:
 	php ./public/app.php ./public/input.txt
 
-tests:
+run-tests:
 	php ./vendor/bin/phpunit tests
