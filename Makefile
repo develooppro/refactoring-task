@@ -1,5 +1,5 @@
-init:
-	composer install
+init-dev:
+	composer install --dev
 	./bin/init.sh
 
 run-wrong:
