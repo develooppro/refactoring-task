@@ -20,8 +20,7 @@ class CurrencyRateCachedClient implements CurrencyRateClientInterface
     private function loadRates(): void
     {
         $response = $this->httpClient->request('GET', $this->url . '?access_key=' . $this->accessKey);
-        if (
-            $response->getStatusCode() !== 200
+        if ($response->getStatusCode() !== 200
             || empty($body = (string) $response->getBody())
         ) {
             throw new \Exception("Currency rates are not accessible on the endpoint [$this->url]");
@@ -39,6 +38,7 @@ class CurrencyRateCachedClient implements CurrencyRateClientInterface
      * Getting currency rate to EUR as default
      *
      * @param string $currencyCode
+     *
      * @return string
      * @throws \JsonException
      *

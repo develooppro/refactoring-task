@@ -21,6 +21,7 @@ class DiscountCalculator
 
     /**
      * @param Transaction $transaction
+     *
      * @return string
      *
      * @see \App\Tests\Unit\DiscountCalculatorTest::testGetDiscount

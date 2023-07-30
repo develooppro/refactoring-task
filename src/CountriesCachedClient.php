@@ -19,16 +19,14 @@ class CountriesCachedClient implements CountriesClientInterface
     private function loadCode(string $bid): void
     {
         $response = $this->httpClient->request('GET', $this->url . $bid);
-        if (
-            $response->getStatusCode() !== 200
+        if ($response->getStatusCode() !== 200
             || empty($body = (string) $response->getBody())
         ) {
             throw new \Exception("Country for BID [$bid] is not defined");
         }
         $decodedResponse = json_decode($body, true, flags: JSON_THROW_ON_ERROR);
 
-        if (
-            empty($decodedResponse)
+        if (empty($decodedResponse)
             || !array_key_exists('country', $decodedResponse)
             || !array_key_exists('alpha2', $decodedResponse['country'])
             || empty($decodedResponse['country']['alpha2'])
@@ -41,6 +39,7 @@ class CountriesCachedClient implements CountriesClientInterface
 
     /**
      * @param string $bid
+     *
      * @return string
      * @throws \JsonException
      *
