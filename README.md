@@ -1,8 +1,8 @@
 ## Steps to run the project
 
-1. Clone the project
+1. Clone the project.
 2. Register on the site https://exchangeratesapi.io/documentation/ and get the API key for the project
-3. Run `make init` to install the dependencies
+3. Run `make init` to install the dependencies and enter the API key when prompted (or edit it in the .env file later)
 4. Run `make run` to run the project on the given data
 5. Run `make run-tests` to run the tests
 
