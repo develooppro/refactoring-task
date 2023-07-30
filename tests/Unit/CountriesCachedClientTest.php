@@ -16,8 +16,8 @@ use Psr\Http\Message\StreamInterface;
 class CountriesCachedClientTest extends TestCase
 {
     /**
-     * @param $input
-     * @param $output
+     * @param array<string, mixed> $input
+     * @param array<string, mixed> $output
      * @return void
      * @throws JsonException
      *
@@ -25,7 +25,7 @@ class CountriesCachedClientTest extends TestCase
      *
      * @covers CountriesCachedClient::getCode
      */
-    public function testGetCode($input, $output): void
+    public function testGetCode(array $input, array $output): void
     {
         $responseBody = $input['apiData'];
         $httpClientMock = $this->createMock(ClientInterface::class);

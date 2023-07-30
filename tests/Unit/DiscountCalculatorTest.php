@@ -14,15 +14,15 @@ use PHPUnit\Framework\TestCase;
 class DiscountCalculatorTest extends TestCase
 {
     /**
-     * @param $input
-     * @param $output
+     * @param array<string, mixed> $input
+     * @param array<string, mixed> $output
      * @return void
      *
      * @dataProvider getDiscountDataProvider
      *
      * @covers DiscountCalculator::getDiscount
      */
-    public function testGetDiscount($input, $output): void
+    public function testGetDiscount(array $input, array $output): void
     {
         // Mocking the dependencies
         $countriesClientMock = $this->createMock(CountriesClientInterface::class);

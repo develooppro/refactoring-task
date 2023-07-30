@@ -10,6 +10,13 @@ class DiscountCalculator
 {
     const EURO_CURRENCY_CODE = 'EUR';
 
+    /**
+     * @param CountriesClientInterface $countriesClient
+     * @param CurrencyRateClientInterface $currencyRateClient
+     * @param string[] $euCodes
+     * @param int $calculationPrecision
+     * @param int $outputPrecision
+     */
     public function __construct(
         private readonly CountriesClientInterface $countriesClient,
         private readonly CurrencyRateClientInterface $currencyRateClient,

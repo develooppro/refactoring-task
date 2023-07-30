@@ -23,7 +23,11 @@ class FileTransactionsParser
      */
     public function parseTransactions(): array
     {
-        $input = explode("\n", trim(file_get_contents($this->fileName)));
+        $content = file_get_contents($this->fileName);
+        if (empty($content)) {
+            throw new \Exception("Input file [$this->fileName] is empty.");
+        }
+        $input = explode("\n", trim($content));
         $transactions = [];
         foreach ($input as $row) {
             if (empty($row)) {

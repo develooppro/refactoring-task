@@ -10,3 +10,6 @@ run:
 
 run-tests:
 	php ./vendor/bin/phpunit tests
+
+phpstan:
+	vendor/bin/phpstan analyse -l 8 src tests

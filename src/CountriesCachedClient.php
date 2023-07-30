@@ -8,6 +8,9 @@ use GuzzleHttp\ClientInterface;
 
 class CountriesCachedClient implements CountriesClientInterface
 {
+    /**
+     * @var array<string, string>
+     */
     private array $countries = [];
 
     public function __construct(

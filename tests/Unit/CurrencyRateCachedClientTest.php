@@ -16,8 +16,8 @@ use Psr\Http\Message\StreamInterface;
 class CurrencyRateCachedClientTest extends TestCase
 {
     /**
-     * @param $input
-     * @param $output
+     * @param array<string, mixed> $input
+     * @param array<string, mixed> $output
      * @return void
      * @throws Exception
      *
@@ -25,7 +25,7 @@ class CurrencyRateCachedClientTest extends TestCase
      *
      * @covers CurrencyRateCachedClient::getRate
      */
-    public function testGetRate($input, $output): void
+    public function testGetRate(array $input, array $output): void
     {
         // Prepare a sample response from the HTTP client for EUR rate
         $responseBody = $input['apiData'];

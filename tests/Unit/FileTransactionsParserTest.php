@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
  */
 class FileTransactionsParserTest extends TestCase
 {
-    public function testParseTransactions()
+    public function testParseTransactions(): void
     {
         $parser = new FileTransactionsParser(__DIR__ . '/data/test_input.txt');
         $transactions = $parser->parseTransactions();
@@ -30,32 +30,42 @@ class FileTransactionsParserTest extends TestCase
         $this->assertEquals('EUR', $transactions[1]->getCurrencyCode());
     }
 
-    public function testEmptyLine()
+    public function testEmptyLine(): void
     {
         $parser = new FileTransactionsParser(__DIR__ . '/data/test_input_with_empty_line.txt');
         $transactions = $parser->parseTransactions();
         $this->assertCount(2, $transactions);
     }
 
-    public function testNotValidJson()
+    public function testNotValidJson(): void
     {
         $this->expectException(\JsonException::class);
         $parser = new FileTransactionsParser(__DIR__ . '/data/test_input_with_invalid_json.txt');
         $parser->parseTransactions();
     }
 
-    public function testMissingField()
+    public function testMissingField(): void
     {
         $parser = new FileTransactionsParser(__DIR__ . '/data/test_input_with_missing_field.txt');
         $transactions = $parser->parseTransactions();
         $this->assertCount(2, $transactions);
     }
 
-    public function testNoFile()
+    public function testNoFile(): void
     {
         $fileName = 'NotValidFileName.txt';
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage("Input file [$fileName] does not exist.");
+
+        $parser = new FileTransactionsParser($fileName);
+        $parser->parseTransactions();
+    }
+
+    public function testEmptyFile(): void
+    {
+        $fileName = __DIR__ . '/data/test_input_empty.txt';
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage("Input file [$fileName] is empty.");
 
         $parser = new FileTransactionsParser($fileName);
         $parser->parseTransactions();

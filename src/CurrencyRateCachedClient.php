@@ -8,6 +8,9 @@ use GuzzleHttp\ClientInterface;
 
 class CurrencyRateCachedClient implements CurrencyRateClientInterface
 {
+    /**
+     * @var array<string, float>
+     */
     private array $rates = [];
 
     public function __construct(
